@@ -1,5 +1,6 @@
 const header = require("../henderson-header.js");
 /*========================
+; Title: Exercise 2.3
 ; Author: George Henderson
 ; Date: 30 October 2020
 ; Description: myName function returns a property of itself

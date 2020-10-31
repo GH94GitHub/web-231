@@ -1,4 +1,5 @@
 /*========================
+; Title: Exercise 2.3 - Function Properties
 ; Author: George Henderson
 ; Date: 30 October 2020
 ; Description: Importing and testing the display header function
