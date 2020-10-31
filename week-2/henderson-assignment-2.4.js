@@ -3,7 +3,7 @@ const header = require("../henderson-header.js");
 ; Title: Assignment 2.4 - Functions
 ; Author: George Henderson
 ; Date: 30 October 2020
-; Description:
+; Description: Creates various functions and invokes them to produce specified output
 ;==================*/
 
 // start program
