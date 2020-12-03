@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test HTML</title>
+    <style>
+      html {
+        line-height: 2em;
+      }
+      body {
+        margin: 0 30%;
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.5em;
+      }
+      h2 {
+        text-align: center;
+        font-size: 2em;
+      }
+      #frm {
+        text-align: center;
+        border:2px solid black;
+        width: fit-content;
+        margin:auto;
+        padding:30px;
+      }
+      #count {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Guess my number 0-10</h1>
+    <h2>Guesses: <span id="guesses">0</span></h2>
+  </br>
+    <div id="frm">
+      <p id='count'>0</p>
+      <button id='btnAdd'>Add one</button>
+      <button id='btnMinus'>Minus one</button>
+      <button id='btnConfirm'>Check!</button>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+
+      // Variables
+      let countDiv = document.getElementById(#count);
+      let guessesDiv = document.getElementById(#guesses);
+      let count = parseInt(countDiv);
+      let guesses = parseInt(guessesDiv);
+      let myNumber = Math.floor(Math.random() * 11);
+
+      // Onclick - 'Add one' button being clicked adds one to the counter just above it
+      document.getElementById('btnAdd').onclick = function() {
+        if (count < 10) {
+          count = ++count;
+          countDiv.innerHTML = count;
+        }
+      }
+
+      // Onclick - 'Minus one' button being clicked minuses one off the counter just above it
+      document.getElementById('btnMinus').onclick = function() {
+        if (count > 0) {
+          count = --count;
+          countDiv.innerText = count;
+        }
+      }
+
+      // Onclick - 'Check!' button being clicked checks if you guessed the right number if not, it tells you higher or lower
+      document.getElementById('btnConfirm').onclick = function() {
+        guessesDiv.innerHTML = ++guesses;
+        if (count === myNumber) {
+          alert('Congratulations you guessed my number in ' + guesses + ' guesses!');
+          reset();
+        }
+        else {
+          if (count > myNumber)
+            alert('Lower!');
+          else
+            alert('Higher');
+        }
+      }
+
+      // Function - when invoked this function resets the game
+      function reset() {
+        count = 0;
+        countDiv.innerHTML = count;
+        guesses = 0;
+        guessesDiv.innerHTML = guesses;
+        myNumber = Math.floor(Math.random() * 11);
+      }
+    }
+  </script>
+</html>
