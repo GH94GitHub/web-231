@@ -1,0 +1,51 @@
+<!--==========================
+; Title: Discussion 8.1
+; Author: George Henderson
+; Date: 10 December 2020
+; Description: Manipulating DOM with jQuery
+; (containing 2 errors to fix).
+;==========================-->
+
+<!DOCTYPE html>
+<head>
+  <title>Discussion 8.1</title>
+  <style>
+    html {
+      text-align: center;
+    }
+    #btnChangeTitle {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Discussion 8.1</h1>
+  <h2>Manipulating DOM with jQuery</h2>
+  <br/>
+  <div>
+    <button id="btnChangeTitle">Click me!</button>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Start JavaScript (jQuery)-->
+<script>
+  // Set the click event of the button to the 'changeBackground' function.
+  $('#btnChangeTitle').bind('click', changeBackground());
+
+  /*
+    Params - None
+    Side-Effect - Changes the text of all h2 elements to 'Congratulations you fixed it!',
+                  Changes the background color of the button to green,
+                  Changes the text of the button to 'It worked!'.
+    Returns - None
+  */
+  function changeBackground() {
+    $('h2').text('Congratulations you fixed it!');
+
+    if ($('h2').html == 'Congratulations you fixed it!') {
+      $('#btnChangeTitle').css('background-color', 'green');
+      $('#btnChangeTitle').text('It worked!');
+    };
+  }
+</script>
+<!------------------------------->
