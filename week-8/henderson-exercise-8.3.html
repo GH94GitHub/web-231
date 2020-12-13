@@ -1,0 +1,86 @@
+<!--------------------
+; Title: Exercise 8.3
+; Author: George Henderson
+; Date: 13 December 2020
+; Description: Site that demonstrates using jQuery and CSS
+; to manipulate a site dynamically.
+-------------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Exercise 8.3</title>
+  <link href="../site.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    button {
+      margin: 0 0 30px 0;
+    }
+    body {
+      margin-left: 20px; /* Both sections 20px on the left side of the page */
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+
+  </nav>
+
+  <h1>Lorem Ipsum</h1>
+  <p id="togglePara">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis tellus condimentum, pulvinar dui suscipit, pretium ante. Proin pretium ligula libero, sit amet ornare nulla laoreet non. Nulla porta semper urna, eget tempor quam malesuada non. Etiam quis augue ex. Mauris posuere a arcu quis maximus. Morbi vestibulum libero eu felis luctus mattis ac blandit orci. Nunc ac odio non metus fringilla auctor id sodales urna. Mauris imperdiet lacus sit amet ipsum imperdiet, sed porta tortor porttitor. Maecenas turpis lorem, semper ac turpis eget, hendrerit sodales odio.</p>
+    <button id="toggleBtn" type="button">Toggle</button>
+  <div id="table"></div>
+
+<script type="text/javascript">
+
+  // Variables
+  let fruitArr = [
+    new Fruit('Strawberry', 22, 'Fruit'),
+    new Fruit('Apple', 1, 'Fruit'),
+    new Fruit('Orange', 2, 'Fruit'),
+    new Fruit('Grape', 30, 'Fruit'),
+    new Fruit('Lemon', 20, 'Fruit')
+  ];
+  let navOut = '<ul>';
+  let out = '<table><tr><th>Name</th><th>Id</th><th>Type</th></tr>';
+
+  // Fill 'navOut' with a ul of the names of each fruit.
+  for (let i = 0; i < fruitArr.length; i++) {
+    navOut += '<li>' + fruitArr[i].name + '</li>'
+  }
+  navOut += '</ul>';
+  document.getElementById('nav').innerHTML = navOut;
+
+  // Creates the fruit table
+  for (let i = 0; i < fruitArr.length; i++) {
+    out += '<tr><td>' + fruitArr[i].name + '</td><td><a href="#" class="fruitId">' + fruitArr[i].id + '</a></td><td>' + fruitArr[i].type + '</td></tr>';
+  }
+  out += '</table>';
+  $('#table').html(out);
+
+  // Creates click events for each id in the fruit table
+  $('.fruitId').click(function() {
+    let fruitId = $(this).text();
+    let fruitType = $(this).closest('td').next().text();
+    alert('Id: ' + fruitId + ' Type: ' + fruitType);
+  })
+
+  // When user clicks the button, animate the paragraph to hide or show on click over 150ms.
+  $('#toggleBtn').click(function() {
+    $('#togglePara').toggle(150, function() {
+      $('#togglePara').css('display', 'hidden');
+    });
+  })
+
+  // Constructor for creating new Fruit objects.
+  function Fruit(name,id,type) {
+    this.name = name;
+    this.id = id;
+    this.type = type;
+  }
+</script>
+
+</body>
+</html>
