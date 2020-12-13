@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+html {
+  font-family:'Roboto', sans-serif;
+}
 
+/*========================================================================*/
+/* Table */
 table {
   border-collapse: collapse;
 }
@@ -15,4 +21,29 @@ th, td {
 tr:nth-child(odd) {
   background-color: lightblue;
 }
-
+/* End table css */
+/*========================================================================*/
+/* Ul Navbar */
+nav ul {
+  text-align: center;
+  background-color: bisque;
+  margin: 0 0 20px; /* Make ul 20px below the nav top bar */
+}
+nav li {
+  background-color:antiquewhite;
+  display:inline;
+  padding:0 10px;
+  border: 1px solid black;
+}
+nav li:nth-of-type(even) {
+  border-width:1px 0;
+  border-style: solid;
+  border-color: black;
+}
+nav li:hover {
+  color: white;
+  background-color:black;
+  cursor: pointer;
+}
+/* End ul Navbar css*/
+/*========================================================================*/
